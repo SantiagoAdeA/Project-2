@@ -279,7 +279,7 @@ class Socket:
             ### UPDATE CORRECTLY HERE
             self.seqNum += len(toSend)
             if(self.seqNum > MAX_SEQNO):
-                self.seqNum = (self.seqNum % MAX_SEQNO) + 1
+                self.seqNum = 0
             self._send(pkt)
             pkt = self._recv()
             #len(self.outBuffer) = len(self.outBuffer) - len(toSend)  # if within RTO we didn't receive packets, things will be retransmitted
